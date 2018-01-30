@@ -5,6 +5,7 @@ import com.bookmate.restapi.models.Review;
 public interface ReviewService {
 
 	Review findOne(String id);
-	<S extends Review>S save(S user);
+	Review save(Review review);
+	Review updateReview(String id,Review review);
 	Iterable<Review> findAll(); 
 }

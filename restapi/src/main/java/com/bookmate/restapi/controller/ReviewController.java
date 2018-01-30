@@ -36,23 +36,6 @@ public class ReviewController {
 
 	 @RequestMapping(method=RequestMethod.PUT, value="/review/{id}")
 	    public Review updateReview(@PathVariable String id,@RequestBody Review review) {
-		 	Review r = reviewservice.findOne(id);
-		 	if(review.getBookName()!=null)
-		 		r.setBookName(review.getBookName());
-		 	if(review.getComments()!=null)
-		 		r.setComments(review.getComments());
-		 	if(review.getLikes()!=0)
-		 		r.setLikes(review.getLikes());
-		 	if(review.getAuthor()!=null)
-		 		r.setAuthor(review.getAuthor());
-		 	if(review.getPublisher()!=null)
-		 		r.setPublisher(review.getPublisher());
-		 	if(review.getImage()!=null)
-		 		r.setImage(review.getImage());
-		 	if(review.getUser()!=null)
-		 		r.setUser(review.getUser());
-		 	if(review.getReview()!=null)
-		 		r.setReview(review.getReview());
-	        return reviewservice.save(r);
+		 	return reviewservice.updateReview(id,review);
 	    }
 }

@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bookmate.restapi.models.Review;
-import com.bookmate.restapi.models.User;
-import com.bookmate.restapi.repositories.ReviewRepository;
+ import com.bookmate.restapi.repositories.ReviewRepository;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
@@ -20,15 +19,40 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public <S extends Review> S save(S r) {
+	public Review save(Review r) {
 		Review review = repository.save(r);
-		return (S)review;
+		return review;
 	}
 
 	@Override
 	public Iterable<Review> findAll() {
 		Iterable<Review> reviews = repository.findAll();
 		return reviews;
+	}
+
+	@Override
+	public Review updateReview(String id,Review review) {
+		Review r = findOne(id);
+	 	if(review.getBookName()!=null)
+	 		r.setBookName(review.getBookName());
+	 	if(review.getComments()!=null)
+	 		r.setComments(review.getComments());
+	 	if(review.getRatings()!=0)
+	 		r.setRatings(review.getRatings());
+	 	if(review.getAuthor()!=null)
+	 		r.setAuthor(review.getAuthor());
+	 	if(review.getPublisher()!=null)
+	 		r.setPublisher(review.getPublisher());
+	 	if(review.getImage()!=null)
+	 		r.setImage(review.getImage());
+	 	if(review.getUser()!=null)
+	 		r.setUser(review.getUser());
+	 	if(review.getReview()!=null)
+	 		r.setReview(review.getReview());
+	 	if(review.getGenre()!=null)
+	 		r.setGenre(review.getGenre());
+	 	save(r);
+		return r;
 	}
 
 }

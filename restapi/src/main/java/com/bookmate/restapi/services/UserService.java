@@ -5,7 +5,7 @@ import com.bookmate.restapi.models.User;
 public interface UserService {
 	
 	  User findOne(String id);
-	  <S extends User>S save(S user);
+	  User save(User user);
 	  Iterable<User> findAll();
 	  
 

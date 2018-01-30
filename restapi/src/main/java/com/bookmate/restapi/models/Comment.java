@@ -7,14 +7,16 @@ package com.bookmate.restapi.models;
 	@DBRef
     User user;
 	String comment;
+	int likes;
     
     public Comment(){
     	
     }
     
-    public Comment(User user,String comment){
+    public Comment(User user,String comment,int likes){
     	this.user = user;
     	this.comment = comment;
+    	this.likes = likes;
     }
     
 	public String getComment() {
@@ -31,6 +33,14 @@ package com.bookmate.restapi.models;
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 
 	

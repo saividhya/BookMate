@@ -13,7 +13,8 @@ public class Review {
     String bookName;
     String author;
     String publisher;
-    int likes;
+    String genre;
+    float ratings;
     String review;
     String image;
     List<Comment> comments;
@@ -25,15 +26,16 @@ public class Review {
     	
     }
     
-    public Review(String bookName,String author,String publisher,int likes,String review,String image,List<Comment> comments,User user){
+    public Review(String bookName,String author,String publisher,String genre,float ratings,String review,String image,List<Comment> comments,User user){
     	this.bookName = bookName;
     	this.author = author;
     	this.publisher = publisher;
-    	this.likes = likes;
     	this.review = review;
     	this.image = image;
     	this.comments = comments;
     	this.user = user;
+    	this.genre = genre;
+    	this.ratings = ratings;
     }
 
 	public String getId() {
@@ -68,12 +70,12 @@ public class Review {
 		this.publisher = publisher;
 	}
 
-	public int getLikes() {
-		return likes;
+	public float getRatings() {
+		return ratings;
 	}
 
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setRatings(float ratings) {
+		this.ratings = ratings;
 	}
 
 	public String getReview() {
@@ -108,5 +110,12 @@ public class Review {
 		this.user = user;
 	}
 
-    
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	    
 }
