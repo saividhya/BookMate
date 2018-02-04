@@ -1,0 +1,14 @@
+
+<div class="panel-group">
+  <div class="panel panel-default">
+  	<div class="panel-heading">{{message}}</div>
+    <div class="panel-body">{{book.review}}</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+    	<div class="col-xs-3 col-sm-3 col-md-3 tile" ng-repeat="b in book.comments">
+    		{{b.comment}}
+    	</div>
+    </div>
+  </div>
+</div>

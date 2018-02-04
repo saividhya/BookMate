@@ -1,5 +1,7 @@
 package com.bookmate.restapi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookmate.restapi.models.Review;
 import com.bookmate.restapi.services.ReviewService;
 
+@CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3000)
 @RestController
-@CrossOrigin("*")
 public class ReviewController {
 	
 	 @Autowired
@@ -37,5 +39,10 @@ public class ReviewController {
 	 @RequestMapping(method=RequestMethod.PUT, value="/review/{id}")
 	    public Review updateReview(@PathVariable String id,@RequestBody Review review) {
 		 	return reviewservice.updateReview(id,review);
+	    }
+	 
+	 @RequestMapping(method=RequestMethod.GET, value="/categories")
+	    public List<String> getDistinctCategories() {
+	        return reviewservice.getDistinctCategories();
 	    }
 }

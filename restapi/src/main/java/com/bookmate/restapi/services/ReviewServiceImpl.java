@@ -1,5 +1,7 @@
 package com.bookmate.restapi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +55,11 @@ public class ReviewServiceImpl implements ReviewService{
 	 		r.setGenre(review.getGenre());
 	 	save(r);
 		return r;
+	}
+
+	@Override
+	public List<String> getDistinctCategories() {
+		return repository.getDistinctCategories();
 	}
 
 }

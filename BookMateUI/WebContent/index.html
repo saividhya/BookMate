@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+      <meta charset="utf-8">
+      <title>BookMate</title>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+      
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+  	<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  
+    </head>
+    <body>
+     <div ng-app="mainApp" class="container">
+     <br/>
+	<br/>
+	<br/>
+        <div ng-view></div>
+        
+     </div>
+ 	  <script type="text/javascript" src="scripts/app.js"></script>
+      <script type="text/javascript" src="scripts/controllers/loginController.js"></script>
+      <script type="text/javascript" src="scripts/controllers/homeController.js"></script>
+      <script type="text/javascript" src="scripts/controllers/reviewController.js"></script>
+      <script type="text/javascript" src="scripts/controllers/registerController.js"></script>
+      <script type="text/javascript" src="scripts/services/loginService.js"></script>
+      <script type="text/javascript" src="scripts/services/homeService.js"></script>
+      <script type="text/javascript" src="scripts/services/reviewService.js"></script>
+      
+      <script type="text/javascript" src="scripts/services/registerService.js"></script>
+    </body>
+</html>
