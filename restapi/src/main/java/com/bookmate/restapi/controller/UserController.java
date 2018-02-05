@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookmate.restapi.models.User;
 import com.bookmate.restapi.services.UserService;
 
-@CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3000)
+@CrossOrigin(origins = { "http://localhost:8000/" }, maxAge = 3000)
 @RestController
 public class UserController {
 	
 	 @Autowired
 	 UserService userservice;
-	 @RequestMapping(value = "http://localhost:8000",method = RequestMethod.OPTIONS)
+	 
+	 @RequestMapping(value = "http://localhost:8000/user",method = RequestMethod.OPTIONS)
 	    public ResponseEntity handle() {
 	        return new ResponseEntity(HttpStatus.OK);
 	    }

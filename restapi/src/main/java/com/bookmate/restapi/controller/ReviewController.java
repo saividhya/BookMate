@@ -3,6 +3,8 @@ package com.bookmate.restapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookmate.restapi.models.Review;
 import com.bookmate.restapi.services.ReviewService;
 
-@CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3000)
+@CrossOrigin("*")
 @RestController
 public class ReviewController {
 	
 	 @Autowired
 	 ReviewService reviewservice;
+	
+	 @RequestMapping(value = {"http://localhost:8000/"},method = RequestMethod.OPTIONS)
+	    public ResponseEntity handle() {
+	        return new ResponseEntity(HttpStatus.OK);
+	    }
 	 
 	 @RequestMapping(method=RequestMethod.POST, value="/review")
 	    public String save(@RequestBody Review review) {

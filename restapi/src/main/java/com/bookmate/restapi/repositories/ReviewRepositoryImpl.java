@@ -31,7 +31,7 @@ private static final String COLLECTION = "review";
 	@Override
 	public Review save(Review review) {
 		if (review != null) {
-		   this.mongoTemplate.insert(review, COLLECTION);
+		   this.mongoTemplate.save(review, COLLECTION);
 		  }
 		return review;
 	}

@@ -1,11 +1,14 @@
 package com.bookmate.restapi.models;
 
- import org.springframework.data.mongodb.core.mapping.DBRef;
+ import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
  
  public class Comment {
 	
 	@DBRef
     User user;
+	@Id
+    String id;
 	String comment;
 	int likes;
     
@@ -41,6 +44,14 @@ package com.bookmate.restapi.models;
 
 	public void setLikes(int likes) {
 		this.likes = likes;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	

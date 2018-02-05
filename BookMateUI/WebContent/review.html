@@ -1,14 +1,39 @@
-
 <div class="panel-group">
   <div class="panel panel-default">
-  	<div class="panel-heading">{{message}}</div>
+  	<div class="panel-heading">
+  		{{message}} <br/>
+  		Author: {{book.author}} <br/>
+		Publisher: {{book.publisher}}<br/>
+  	</div>
     <div class="panel-body">{{book.review}}</div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-    	<div class="col-xs-3 col-sm-3 col-md-3 tile" ng-repeat="b in book.comments">
-    		{{b.comment}}
-    	</div>
+    <div class="panel-footer">
+    	Rate: <select ng-model="rate" ng-change="updateRate()">
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+			  </select> <br/>
+		
     </div>
   </div>
+  
+  <div class="panel panel-default">
+  <div class="panel-heading">Comments</div>
+    <div class="panel-body">
+    	<div  ng-repeat="b in book.comments">
+    	    {{b.user.userName}} wrote <br/>
+    		{{b.comment}} <br/>
+    			<button type="button" id = {{b.id}} ng-click="likeComment($event)" >like</button>
+    		<br/>
+    	</div>
+    </div>
+     <div class="col-xs-3 col-sm-3 col-md-3 tile">
+    	<textarea ng-model="comment" class="form-control"></textarea>
+    	<button type="button" ng-click="addComment($event)" >Add comment</button>
+    	</div>
+     
+  </div>
+  <br/><br/>
+  
 </div>
